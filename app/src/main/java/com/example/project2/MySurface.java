@@ -33,15 +33,18 @@ public class MySurface extends SurfaceView implements SurfaceHolder.Callback{
         surfaceHolder = getHolder();
         paint = new Paint();
         paint.setColor(Color.GRAY);
+        paint.setStrokeWidth(10000);
     }
 
-    public void drawTile(){
+    public void drawTile(float posX, float posY){
         surfaceHolder = getHolder();
 
         Canvas canvas = surfaceHolder.lockCanvas();
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        float[] verts = {1, 1, 5, 5, 7, 7};
+        float[] vert = {posX, posY, posX+50, posY-87, posX-50, posY-87, posX-100, posY, posX-50, posY+87, posX+50, posY+87,posX+100, posY, posX+50, posY-87};
+        //int[] colors = {-0x100000, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW};
         //canvas mode is triangle_fan, hex needs 7 points
-
+        canvas.drawVertices(Canvas.VertexMode.TRIANGLE_FAN, vert.length, vert, 0, null, 0, null, 0, null, 0, 0, paint);
+        surfaceHolder.unlockCanvasAndPost(canvas);
     }
 }
