@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         float x = motionEvent.getX();
         float y = motionEvent.getY();
         if(view instanceof SurfaceView){
-            customSurfaceView.drawTile(x,y);
+            //customSurfaceView.drawTile(x,y);
+            customSurfaceView.drawBoard(x,y);
             return true;
         }else{
             return false;
