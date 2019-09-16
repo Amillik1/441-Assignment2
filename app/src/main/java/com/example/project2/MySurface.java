@@ -9,6 +9,7 @@ import android.graphics.PixelFormat;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
 import android.view.View;
+import java.lang.Math;
 
 public class MySurface extends SurfaceView implements SurfaceHolder.Callback{
     private SurfaceHolder surfaceHolder = null;
@@ -50,7 +51,18 @@ public class MySurface extends SurfaceView implements SurfaceHolder.Callback{
                 {centerX-150, centerY-87},
                 {centerX-150, centerY+87}};
         //select a tile to change color if touched
-
+        int selectedTile = -1;
+        double smallDist = 100;
+        for (int i =0; i < tileLoc.length; i++){
+            double distToCenter = Math.sqrt( (Math.abs(tileLoc[i][0]-x)*Math.abs(tileLoc[i][0]-x) )+ (Math.abs(tileLoc[i][1]-y)*Math.abs(tileLoc[i][1]-y)) );
+            if (smallDist > distToCenter){
+                smallDist = distToCenter;
+                selectedTile = i;
+            }
+        }
+        if (selectedTile != -1){
+            tileState[selectedTile] = selected.yes;
+        }
 
         Canvas canvas = surfaceHolder.lockCanvas();
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
