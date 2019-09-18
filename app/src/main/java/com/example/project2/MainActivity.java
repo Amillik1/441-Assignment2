@@ -2,6 +2,7 @@ package com.example.project2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             canvasLayout = (LinearLayout)findViewById(R.id.boardSpace);
         }
     }
+
+    //implement scroll and other touch operations
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent){

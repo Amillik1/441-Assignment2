@@ -15,6 +15,7 @@
             android:id="@+id/boardSpace"
             android:orientation="vertical">
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
