@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         customSurfaceView = new MySurface(getApplicationContext());
-        customSurfaceView.setOnTouchListener(this);        
+        customSurfaceView.setOnTouchListener(this);
         canvasLayout.addView(customSurfaceView);
         //setContentView(new MyView(this));
     }
@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     public boolean onTouch(View view, MotionEvent motionEvent){
         float x = motionEvent.getX();
         float y = motionEvent.getY();
-        setContentView(R.layout.activity_main);
         if(view instanceof SurfaceView){
             //customSurfaceView.drawTile(x,y);
             customSurfaceView.drawBoard(x,y);
